@@ -17,7 +17,7 @@ RUN poetry install --no-root --only main
 COPY . .
 
 # Expose the port the app runs on
-EXPOSE 5000
+EXPOSE 8080
 
 # Command to run the application
-CMD ["gunicorn", "--bind", "0.0.0.0:5000", "main:app"]
+CMD ["gunicorn", "--bind", "0.0.0.0:8080", "main:app"]
