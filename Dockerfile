@@ -11,7 +11,7 @@ COPY pyproject.toml ./
 RUN pip install poetry
 
 # Install dependencies
-RUN poetry install --no-root --no-dev
+RUN poetry install --no-root --only main
 
 # Copy the rest of the application code
 COPY . .
