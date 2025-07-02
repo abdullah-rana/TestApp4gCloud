@@ -4,11 +4,14 @@ FROM python:3.11-slim
 # Set the working directory
 WORKDIR /app
 
-# Copy the pyproject.toml and poetry.lock files
+# Copy the pyproject.toml file (poetry.lock is optional)
 COPY pyproject.toml ./
 
 # Install poetry
 RUN pip install poetry
+
+# Configure poetry to not create virtual environment
+RUN poetry config virtualenvs.create false
 
 # Install dependencies
 RUN poetry install --no-root --only main
